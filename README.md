@@ -1,7 +1,29 @@
-# Vue 3 + Vite
+# Vue 3 + CKEditor5
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+紀錄如何在 Vue3 中使用 CKEditor5，從安裝套件到設置的全過程。
 
-## Recommended IDE Setup
+## 安裝
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### 取得專案
+
+```bash
+git clone https://github.com/CofCat456/vue3-ckeditor5.git
+```
+
+### 移動到專案內
+
+```bash
+cd vue3-ckeditor5
+```
+
+### 安裝套件
+
+```bash
+npm install
+```
+
+### 運行專案
+
+```bash
+npm run dev
+```
