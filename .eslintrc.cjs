@@ -28,5 +28,6 @@ module.exports = {
   rules: {
     semi: ['error', 'always'],
     camelcase: ['off'],
+    'vue/multi-word-component-names': 'off'
   }
 };
