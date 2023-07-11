@@ -1,11 +1,20 @@
 <script setup>
+import { RouterLink } from 'vue-router';
+
 // 中文包
 import '@ckeditor/ckeditor5-build-classic/build/translations/zh-cn';
 
 // 經典版型
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import useCkeditor from '../stores/ckeditor';
+
+import MyAdapterPlugin from '../utlis/myUploadAdapter';
+
+const ckeditorStore = useCkeditor();
+
+const { editorResult } = storeToRefs(ckeditorStore);
 
 // 控制 ckeditor 的啟用
 defineProps({
@@ -17,15 +26,12 @@ defineProps({
 
 const emit = defineEmits(['ready', 'foucs', 'blur', 'input', 'destroy']);
 
-
 // 存放版型，用來傳入
 const editor = ClassicEditor;
 
-// 存放 Editor 的結果
-const editorResult = ref('');
-
 // 存放 Editor 的設定 (Ex: 工具列)
 const editorConfig = {
+  extraPlugins: [MyAdapterPlugin],
   // 語言 中文
   language: 'zh-cn',
 
@@ -53,7 +59,6 @@ const editorConfig = {
   }
 };
 
-
 // 準備
 const onEditorReady = () => {
   emit('ready');
@@ -72,7 +77,6 @@ const onEditorBlur = () => {
 // 打字中
 const onEditorInput = () => {
   emit('input');
-  console.log('typing...', editorResult.value);
 };
 
 // 銷毀時
@@ -83,9 +87,8 @@ const onEditorDestroy = () => {
 
 <template>
   <div id="ckeditor">
-      <div id="ckeditor">
-        <!-- 套件放置處 -->
-        <ckeditor
+    <!-- 套件放置處 -->
+    <ckeditor
       :editor="editor"
       :config="editorConfig"
       :disabled="disabled"
@@ -96,14 +99,20 @@ const onEditorDestroy = () => {
       @destroy="onEditorDestroy"
       v-model="editorResult"
     />
-      </div>
   </div>
+  <RouterLink :to="{ name: 'Preview' }">GoPreview</RouterLink>
 </template>
 
 <style scoped>
 #ckeditor :deep(.ck-editor__editable) {
-  min-height: 100px;
+  min-height: 200px;
   max-height: 500px;
   color: #1a202c;
+}
+
+a {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
 }
 </style>

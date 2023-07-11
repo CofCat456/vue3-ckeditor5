@@ -1,7 +1,7 @@
 <script setup>
-import Ckeditor from './components/Ckeditor.vue';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <Ckeditor />
+  <RouterView />
 </template>

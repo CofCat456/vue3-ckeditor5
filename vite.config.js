@@ -11,4 +11,9 @@ export default defineConfig({
       include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
     })
   ],
+  server: {
+    open: true,
+    host: '0.0.0.0',
+    port: 4000
+  }
 });

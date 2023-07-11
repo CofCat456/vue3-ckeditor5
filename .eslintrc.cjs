@@ -28,6 +28,13 @@ module.exports = {
   rules: {
     semi: ['error', 'always'],
     camelcase: ['off'],
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
+    'no-param-reassign': [
+      'error',
+      {
+        ignorePropertyModificationsFor: ['config']
+      }
+    ],
+    'import/prefer-default-export': 'off'
   }
 };
