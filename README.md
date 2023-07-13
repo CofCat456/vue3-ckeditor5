@@ -1,6 +1,6 @@
 # Vue 3 + CKEditor5
 
-紀錄如何在 Vue3 中使用 CKEditor5，從安裝套件到設置的全過程。
+紀錄如何在 Vue3 中使用 CKEditor5，自定義編輯器的過程。
 
 ## 安裝
 
