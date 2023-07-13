@@ -4,15 +4,13 @@ import { RouterLink } from 'vue-router';
 import { component as ckeditor } from '@ckeditor/ckeditor5-vue';
 
 // 中文包
-import '@ckeditor/ckeditor5-build-classic/build/translations/zh-cn';
+import 'ckeditor5-custom-build/build/translations/zh-cn';
 
 // 經典版型
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
 
 import { storeToRefs } from 'pinia';
 import useCkeditor from '../stores/ckeditor';
-
-import MyAdapterPlugin from '../utlis/myUploadAdapter';
 
 const ckeditorStore = useCkeditor();
 
@@ -29,37 +27,7 @@ defineProps({
 const emit = defineEmits(['ready', 'foucs', 'blur', 'input', 'destroy']);
 
 // 存放版型，用來傳入
-const editor = ClassicEditor;
-
-// 存放 Editor 的設定 (Ex: 工具列)
-const editorConfig = {
-  extraPlugins: [MyAdapterPlugin],
-  // 語言 中文
-  language: 'zh-cn',
-
-  // 工具列
-  toolbar: {
-    items: [
-      'heading',
-      '|',
-      'bold',
-      'italic',
-      'link',
-      'bulletedList',
-      'numberedList',
-      '|',
-      'outdent',
-      'indent',
-      '|',
-      'imageUpload',
-      'blockQuote',
-      'insertTable',
-      'mediaEmbed',
-      'undo',
-      'redo'
-    ]
-  }
-};
+const editor = Editor;
 
 // 準備
 const onEditorReady = () => {
@@ -92,7 +60,6 @@ const onEditorDestroy = () => {
     <!-- 套件放置處 -->
     <ckeditor
       :editor="editor"
-      :config="editorConfig"
       :disabled="disabled"
       @ready="onEditorReady"
       @foucs="onEditorFoucs"

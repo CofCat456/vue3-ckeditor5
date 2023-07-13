@@ -15,5 +15,13 @@ export default defineConfig({
     open: true,
     host: '0.0.0.0',
     port: 4000
+  },
+  optimizeDeps: {
+    include: ['ckeditor5-custom-build/build/ckeditor']
+  },
+  build: {
+    commonjsOptions: {
+      include: ['ckeditor5-custom-build/build/ckeditor']
+    }
   }
 });
