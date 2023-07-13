@@ -10,7 +10,7 @@ const { editorResult } = storeToRefs(ckeditorStore);
 
 <template>
   <div v-html="editorResult" />
-  <RouterLink :to="{ name: 'Ckeditor' }">GoEditor</RouterLink>
+  <RouterLink :to="{ name: 'Editor' }">GoEditor</RouterLink>
 </template>
 
 <style scoped>

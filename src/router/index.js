@@ -5,13 +5,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Ckeditor',
-      component: () => import('../components/Ckeditor.vue')
+      name: 'Editor',
+      component: () => import('../views/Editor.vue')
     },
     {
       path: '/preview',
       name: 'Preview',
-      component: () => import('../components/PreView.vue')
+      component: () => import('../views/PreView.vue')
     }
   ]
 });
